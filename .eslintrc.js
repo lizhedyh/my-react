@@ -6,7 +6,8 @@ module.exports = {
     },
     'extends': [
         'eslint:recommended',
-        'plugin:@typescript-eslint/eslint-recommended'
+        'plugin:@typescript-eslint/eslint-recommended',
+        '@myfe/eslint-config-maoyan',
     ],
     'globals': {
         'Atomics': 'readonly',
@@ -17,25 +18,11 @@ module.exports = {
         'ecmaFeatures': {
             'jsx': true
         },
-        'ecmaVersion': 2018,
-        'sourceType': 'module'
+        'ecmaVersion': 2018
     },
     'plugins': [
         'react',
         '@typescript-eslint'
     ],
-    'rules': {
-        'linebreak-style': [
-            'error',
-            'unix'
-        ],
-        'quotes': [
-            'error',
-            'single'
-        ],
-        'semi': [
-            'error',
-            'always'
-        ]
-    }
+    'rules': {}
 };
