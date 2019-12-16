@@ -8,6 +8,7 @@ module.exports = {
         'eslint:recommended',
         'plugin:@typescript-eslint/eslint-recommended',
         '@myfe/eslint-config-maoyan',
+        'plugin:@myfe/eslint-plugin-myfe/myfeRule'
     ],
     'globals': {
         'Atomics': 'readonly',
@@ -24,5 +25,7 @@ module.exports = {
         'react',
         '@typescript-eslint'
     ],
-    'rules': {}
+    'rules': {
+      
+    }
 };
