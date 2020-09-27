@@ -35,7 +35,12 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
     "@typescript-eslint/eslint-plugin": "^2.9.0",
-    "@typescript-eslint/parser": "^2.9.0"
+    "@typescript-eslint/parser": "^2.9.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-import": "^1.13.0"
   }
 }
