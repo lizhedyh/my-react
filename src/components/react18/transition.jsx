@@ -2,6 +2,7 @@ import React, { useEffect, useState, useTransition } from "react";
 
 function TransitionReact() {
   const [list, setList] = useState();
+  const [quickList, setQuickList] = useState();
   const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
@@ -9,6 +10,9 @@ function TransitionReact() {
     startTransition(() => {
       setList(new Array(10000).fill(null));
     });
+
+    // 更高优先级任务先执行
+    setQuickList(new Array(10000).fill(null));
   }, []);
 
   return (
@@ -18,15 +22,13 @@ function TransitionReact() {
           <div key={i}>{i}</div>
         ))
       }
+      {
+        quickList && quickList.map((item, i) => (
+          <div key={i}>Hello</div>
+        ))
+      }
     </>
   )
-  // return (
-  //   <>
-  //     {list && list.map((_, i) => (
-  //       <div key={i}>{i}</div>
-  //     ))}
-  //   </>
-  // );
 }
 
 export { TransitionReact };

@@ -1,24 +1,31 @@
-import React, { useEffect, useState, useDeferredValue } from "react";
+import React, { useState, useDeferredValue } from "react";
 
-function DefferedReact() {
-  const [list, setList] = useState();
+function List(props) {
+  const text = props.text;
+  const deferredText = useDeferredValue(text);
 
-  useEffect(() => {
-    setList(new Array(10000).fill(null));
-  }, []);
-
-  // 使用了并发特性，开启并发更新
-  const defferedList = useDeferredValue(list);
-
+  console.log('text', text);
+  console.log('deferredText', deferredText);
   return (
     <>
-      {
-        defferedList && defferedList.map((item, i) => (
-          <div key={i}>{i}</div>
-        ))
-      }
+      <div>{deferredText}</div>
     </>
   )
+}
+
+function DefferedReact() {
+  const [text, setText] = useState("");
+
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
+
+  return (
+    <div>
+      <input onChange={handleChange}/>
+      <List text={text}/>
+    </div>
+  );
 }
 
 export { DefferedReact };
