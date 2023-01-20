@@ -375,7 +375,7 @@ module.exports = function(webpackEnv) {
             // The preset includes JSX, Flow, TypeScript, and some ESnext features.
             {
               test: /\.(js|mjs|jsx|ts|tsx)$/,
-              include: paths.appSrc,
+              include: paths.appSrc, // 就是src目录下的这些js文件
               loader: require.resolve('babel-loader'),
               options: {
                 customize: require.resolve(
