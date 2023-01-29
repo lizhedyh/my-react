@@ -1,36 +1,37 @@
 import React, {Component} from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import store from "../../redux/store";
+import * as Actions from "../../redux/actions";
 
 class ClickCounter extends Component {
     constructor(props) {
       super(props);
       this.onClickIncrementButton = this.onClickIncrementButton.bind(this);
       this.onClickDecrementButton = this.onClickDecrementButton.bind(this);
-      this.state = {
-        count: props.initialValue,
-      }
+      this.onChange = this.onChange.bind(this);
+      this.state = this.getOwnState();
     }
-
+    getOwnState() {
+      return {
+        value: store.getState()[this.props.caption],
+      };
+    }
     onClickIncrementButton() {
-      this.updateCount(true);
+      store.dispatch(Actions.increment(this.props.caption));
     }
     onClickDecrementButton() {
-      this.updateCount(false);
+      store.dispatch(Actions.decrement(this.props.caption));
+    }
+    onChange() {
+      this.setState(this.getOwnState());
     }
 
-    updateCount(isIncrement) {
-      let oldValue = this.state.count;
-      let newValue = isIncrement ? oldValue + 1 : oldValue - 1;
-      
-      this.setState({
-        count: newValue,
-      });
-      this.props.onUpdate(oldValue, newValue);
+    componentDidMount() {
+      store.subscribe(this.onChange);
     }
 
-    shouldComponentUpdate(nextProps, nextStatus) {
-      return nextProps.caption !== this.props.caption ||
-      nextStatus.count !== this.state.count;
+    componentWillUnmount() {
+      store.unsubscribe(this.onChange);
     }
 
     render(){
@@ -40,7 +41,7 @@ class ClickCounter extends Component {
           <button onClick={this.onClickIncrementButton}>+</button>
           <button onClick={this.onClickDecrementButton}>-</button>
           <span>
-            {caption} Click count: {this.state.count}
+            {caption} Click count: {this.state.value}
           </span>
         </div>
       )
