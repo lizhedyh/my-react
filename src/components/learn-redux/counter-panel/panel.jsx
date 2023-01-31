@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { ClickCounter } from "./counter";
-import store from "../../redux/store";
+import store from "./store";
 
 class CounterPanel extends Component {
     constructor(props) {

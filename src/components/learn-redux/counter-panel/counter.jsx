@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import store from "../../redux/store";
-import * as Actions from "../../redux/actions";
+import store from "./store";
+import * as Actions from "./actions";
 
 class ClickCounter extends Component {
     constructor(props) {
