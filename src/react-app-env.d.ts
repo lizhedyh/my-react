@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /// <reference types="node" />
 /// <reference types="react" />
 /// <reference types="react-dom" />
