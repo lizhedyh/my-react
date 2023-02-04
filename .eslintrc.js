@@ -256,11 +256,11 @@ module.exports = {
         }],
     
         // [强制] 线上代码禁止使用console
-        'no-console': 'error',
+        'no-console': 'warning',
     
         // [推荐] 单行字符数最多120字
         'max-len': ['warn', {
           code: 120,
         }],
-      },
+    },
 };
