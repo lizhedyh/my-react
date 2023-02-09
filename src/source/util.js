@@ -9,16 +9,18 @@ function createVNode(vtype, type, props) {
     vtype,
     type,
     props,
-  }
+  };
+
   return vnode;
 }
 
 /**
  * 虚拟dom处理成dom
- * @param {*} vnode 
+ * @param {*} vnode
  */
 function initNode(vnode) {
   const { vtype } = vnode;
+
   if (!vtype) {
     // 文本节点
     return document.createTextNode(vnode);
@@ -38,20 +40,21 @@ function initNode(vnode) {
  * @param {*} vnode 虚拟dom
  */
 function createNormalTag(vnode) {
-  let { type, props} = vnode;
+  let { type, props } = vnode;
   let node = document.createElement(type);
 
   let { key, children, ...rest } = props;
 
-  Object.keys(rest).forEach((k) => {
+  Object.keys(rest).forEach(k => {
     if (k === 'className') {
       node.setAttribute('class', rest[k]);
     } else if (k === 'htmlFor') {
       node.setAttribute('for', rest[k]);
     } else if (k === 'style' && typeof rest[k] === 'object') {
-      const style = Object.keys(rest[k]).map((s) => 
-        s+ ':' + rest[k][s]
-      ).join(';')
+      const style = Object.keys(rest[k]).map(s =>
+        `${s }:${ rest[k][s]}`
+      ).join(';');
+
       node.setAttribute('style', style);
     } else if (k.startsWith('on')) {
       const event = k.toLowerCase();
@@ -60,14 +63,14 @@ function createNormalTag(vnode) {
     } else {
       node.setAttribute(k, rest[k]);
     }
-  })
+  });
 
   // 递归处理子元素
   children.forEach(c => {
-    if(Array.isArray(c)) {
-      c.forEach((item) => {
+    if (Array.isArray(c)) {
+      c.forEach(item => {
         node.appendChild(initNode(item));
-      })
+      });
     } else {
       node.appendChild(initNode(c));
     }
@@ -79,12 +82,13 @@ function createNormalTag(vnode) {
  * class组件
  * @param {*} vnode 虚拟dom
  */
-function createClassTag (vnode) {
+function createClassTag(vnode) {
   // type 是class声明
   const { type, props } = vnode;
   const component = new type(props);
+
   // 调用render方法 得到虚拟dom
-  const vdom = component.render(); 
+  const vdom = component.render();
 
   return initNode(vdom);
 }
@@ -103,5 +107,5 @@ function createFunctionTag(vnode) {
 
 export {
   createVNode,
-  initNode
+  initNode,
 };

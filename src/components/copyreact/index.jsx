@@ -8,7 +8,7 @@ import React, { Component } from '../../source/kcreact';
 
 
 function Comp(props) {
-  return <h2>hi {props.name}</h2>
+  return <h2>hi {props.name}</h2>;
 }
 
 class Comp2 extends Component {
@@ -17,7 +17,7 @@ class Comp2 extends Component {
       <div>
         <h2>hi, {this.props.name}</h2>
       </div>
-    )
+    );
   }
 }
 
@@ -30,7 +30,7 @@ const users = [{
 }];
 
 const Copyreact = (
-  <div id="demo" style={{ color: "red", border: "1px solid green" }}>
+  <div id="demo" style={{ color: 'red', border: '1px solid green' }}>
     <button onClick={() => {
       alert('clicked');
     }}>click me</button>
@@ -38,13 +38,13 @@ const Copyreact = (
     <Comp2 name="类组件"></Comp2>
     <ul>
       {
-        users.map((user) => (
+        users.map(user => (
           <li key={user.name}>{user.name}{user.age}</li>
         ))
       }
     </ul>
   </div>
-)
+);
 
 
 export { Copyreact };

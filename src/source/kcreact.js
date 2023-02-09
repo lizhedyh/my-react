@@ -2,6 +2,7 @@
 import { createVNode } from './util';
 function createElement(type, props, ...children) {
   let vtype; // 组件类型
+
   props.children = children;
   delete props.__self;
   delete props.__source;
@@ -12,7 +13,7 @@ function createElement(type, props, ...children) {
     if (type.isClassComponent) { // 类组件
       vtype = 2;
     } else { // 函数组件
-      vtype = 3
+      vtype = 3;
     }
   }
   return createVNode(vtype, type, props);
@@ -23,7 +24,7 @@ export class Component {
     this.props = props;
     this.state = {};
   }
-  setState () {
+  setState() {
 
   }
 }

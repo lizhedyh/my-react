@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useTransition } from "react";
+import React, { useEffect, useState, useTransition } from 'react';
 
 function TransitionReact() {
   const [list, setList] = useState();
@@ -13,10 +13,10 @@ function TransitionReact() {
 
     // 更高优先级任务先执行
     setQuickList(new Array(10000).fill(null));
-  }, []);
+  }, [startTransition]);
 
   return (
-    <> 
+    <>
       {
         list && list.map((item, i) => (
           <div key={i}>{i}</div>
@@ -28,7 +28,7 @@ function TransitionReact() {
         ))
       }
     </>
-  )
+  );
 }
 
 export { TransitionReact };
