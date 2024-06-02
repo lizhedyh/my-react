@@ -36,7 +36,6 @@ module.exports = {
         "no-undef": "error", // 未定义变量 error
         "react/jsx-uses-react": 1, //防止React被错误地标记为未使用
         "react/jsx-uses-vars": 2, // 防止在JSX中使用的变量被错误地标记为未使用
-        "@myfe/myfe/no-export-default": "off", // 关闭使用 export default warning
         "react-hooks/rules-of-hooks": "error", // 检查 Hook 的规则
         "react-hooks/exhaustive-deps": "warn", // 检查 effect 的依赖
         // [强制] 变量名, 属性名, 函数名, 方法名，驼峰格式
