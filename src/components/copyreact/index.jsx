@@ -4,7 +4,7 @@
  * import { Copyreact } from './components/copyreact/index';
  * ReactDOM.render(Copyreact, document.getElementById('root'));
  */
-import React, { Component } from '../../source/kcreact';
+import React, { Component } from '../../simple-react/kcreact';
 
 
 function Comp(props) {
@@ -25,7 +25,7 @@ const users = [{
   name: '土拨鼠1号',
   age: 27,
 }, {
-  name: '番薯大神',
+  name: '吸鼠霸王',
   age: 25,
 }];
 
