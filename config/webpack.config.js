@@ -136,7 +136,7 @@ module.exports = function(webpackEnv) {
     }
     return loaders;
   };
-
+console.log('/Users/lizhe/日常练习/my-react/src/index.jsx');
   return {
     mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
     // Stop compilation early in production
