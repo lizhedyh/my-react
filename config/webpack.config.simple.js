@@ -5,5 +5,7 @@ const appDirectory = fs.realpathSync(process.cwd()); // get absolute path for pr
 
 module.exports = {
   entry: path.resolve(appDirectory, 'src/mock/index.js'),
-  output: path.resolve(appDirectory, 'build'),
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(appDirectory, 'dist')},
 }
