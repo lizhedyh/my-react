@@ -4,8 +4,13 @@ const path = require('path');
 const appDirectory = fs.realpathSync(process.cwd()); // get absolute path for process startup
 
 module.exports = {
-  entry: path.resolve(appDirectory, 'src/mock/index.js'),
+  mode: "development",
+  context: path.resolve(appDirectory, 'src/mock'),
+  entry: {
+    index: './index.js',
+    hello: './hello.js',
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(appDirectory, 'dist')},
 }
