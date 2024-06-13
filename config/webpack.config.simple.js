@@ -6,10 +6,10 @@ const appDirectory = fs.realpathSync(process.cwd()); // get absolute path for pr
 
 module.exports = {
   mode: "development",
-  context: path.resolve(appDirectory, "src/mock"),
+  context: path.resolve(appDirectory, "src"),
   entry: {
-    index: "./index.js",
-    hello: "./hello.js",
+    index: "./mock/index.js",
+    hello: "./mock/hello.js",
   },
   output: {
     filename: "[name].js",
@@ -21,5 +21,13 @@ module.exports = {
     runtimeChunk: {
       name: "runtime", // 运行时 chunk 的名字
     },
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: "./simple-webpack/js-loader.js",
+      },
+    ],
   },
 };
