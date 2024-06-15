@@ -16,7 +16,12 @@ module.exports = {
     path: path.resolve(appDirectory, "dist"),
     clean: true, // clear dist before build
   },
-  plugins: [new htmlWebpackPlugin({ title: "xx" })],
+  plugins: [
+    new htmlWebpackPlugin({
+      title: "test webpack",
+      template: "./mock/index.html",
+    }),
+  ],
   optimization: {
     runtimeChunk: {
       name: "runtime", // 运行时 chunk 的名字
@@ -25,8 +30,41 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: "./simple-webpack/js-loader.js",
+        test: /\.(css)/,
+        use: [
+          {
+            loader: "style-loader",
+            options: { injectType: "singletonStyleTag" },
+          },
+          "css-loader",
+        ],
+      },
+      {
+        test: /\.(jpg|png)/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 2048, // when img size < 2kb, use file-loader
+          },
+        },
+      },
+      {
+        test: /\.html$/,
+        use: {
+          loader: "html-loader",
+          options: {
+            minimize: {
+              removeComments: true,
+              collapseWhitespace: true,
+            },
+          },
+        },
+      },
+      {
+        test: /\.svg/,
+        use: {
+          loader: "svg-url-loader",
+        },
       },
     ],
   },
