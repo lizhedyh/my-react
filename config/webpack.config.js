@@ -1,6 +1,10 @@
 const fs = require("fs");
 const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const appDirectory = fs.realpathSync(process.cwd()); // get absolute path for process startup
 
@@ -13,20 +17,34 @@ module.exports = {
   },
   output: {
     filename: "[name].js",
-    path: path.resolve(appDirectory, "dist"),
-    clean: true, // clear dist before build
+    path: path.resolve(appDirectory, "public"),
+    publicPath: "/",
+    clean: true, // clear public before build
+  },
+  devServer: {
+    compress: true,
+    port: 8080,
+    hot: true,
+    open: true,
+    static: {
+      directory: path.resolve(appDirectory, "public"),
+    },
   },
   plugins: [
     new htmlWebpackPlugin({
       title: "test webpack",
       template: "./mock/index.html",
     }),
+    new MiniCssExtractPlugin(),
+    new BundleAnalyzerPlugin(),
   ],
   optimization: {
     runtimeChunk: {
       name: "runtime", // 运行时 chunk 的名字
     },
+    minimizer: [new CssMinimizerPlugin()],
   },
+  devtool: "source-map",
   module: {
     rules: [
       {

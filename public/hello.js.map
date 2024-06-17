@@ -1,0 +1,1 @@
+{"version":3,"file":"hello.js","mappings":";;;;;;;;;;;;;AAAA,6BAAe,sCAAW;AAC1B;AACA","sources":["webpack:///./mock/hello.js"],"sourcesContent":["export default function() {\n  return 'hello world!!!'\n}"],"names":[],"sourceRoot":""}

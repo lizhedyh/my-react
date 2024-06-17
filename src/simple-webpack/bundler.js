@@ -1,20 +1,20 @@
-const fs = require('fs')
-const path = require('path');
-const compiler = require('./compiler');
-const options = require('../../config/webpack.config.simple');
+const fs = require("fs");
+const path = require("path");
+const compiler = require("./compiler");
+const options = require("../../config/webpack.config");
 
-const { entry, output } = options
+const { entry, output } = options;
 
 const bundle = (graph) => {
   let modules = {};
- 
+
   // graph array transform to hash object
-  graph.forEach(item => {
+  graph.forEach((item) => {
     modules[item.filename] = {
-        dependencies: item.dependencies,
-        code: item.code
-    }
-  })
+      dependencies: item.dependencies,
+      code: item.code,
+    };
+  });
   modules = JSON.stringify(modules);
   const result = `(function(graph){
       function require(filepath) {
@@ -30,16 +30,16 @@ const bundle = (graph) => {
         return exports
       }
       require('${entry}')
-    })(${modules})`
-  return result
-}
+    })(${modules})`;
+  return result;
+};
 
 const createFile = (code) => {
   fs.writeFileSync(path.join(output.path, output.filename), code);
 };
 
 const graph = new compiler(options).run();
-console.log('graph', graph);
+console.log("graph", graph);
 const result = bundle(graph);
-console.log('result', result);
+console.log("result", result);
 createFile(result);
