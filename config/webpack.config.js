@@ -36,13 +36,14 @@ module.exports = {
       template: "./mock/index.html",
     }),
     new MiniCssExtractPlugin(),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
   ],
   optimization: {
     runtimeChunk: {
       name: "runtime", // 运行时 chunk 的名字
     },
     minimizer: [new CssMinimizerPlugin()],
+    usedExports: true,
   },
   devtool: "source-map",
   module: {

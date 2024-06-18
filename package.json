@@ -5,6 +5,10 @@
   "engines": {
     "node": ">=18.0.0"
   },
+  "sideEffects": [
+    "./src/mock/util.js",
+    "./src/mock/index.css"
+  ],
   "scripts": {
     "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
     "webpack": "webpack --config config/webpack.config.js",

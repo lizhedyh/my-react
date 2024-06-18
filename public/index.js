@@ -7,7 +7,6 @@
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
@@ -158,13 +157,9 @@ module.exports = function (item) {
 /*!************************!*\
   !*** ./mock/index.css ***!
   \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_singletonStyleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/singletonStyleDomAPI.js */ "../node_modules/style-loader/dist/runtime/singletonStyleDomAPI.js");
@@ -200,7 +195,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_index_css__WEBPACK_IMPORTED_MODULE_5__["default"] && _node_modules_css_loader_dist_cjs_js_index_css__WEBPACK_IMPORTED_MODULE_5__["default"].locals ? _node_modules_css_loader_dist_cjs_js_index_css__WEBPACK_IMPORTED_MODULE_5__["default"].locals : undefined);
+       /* unused harmony default export */ var __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_index_css__WEBPACK_IMPORTED_MODULE_5__["default"] && _node_modules_css_loader_dist_cjs_js_index_css__WEBPACK_IMPORTED_MODULE_5__["default"].locals ? _node_modules_css_loader_dist_cjs_js_index_css__WEBPACK_IMPORTED_MODULE_5__["default"].locals : undefined);
 
 
 /***/ }),
@@ -496,7 +491,6 @@ module.exports = "data:image/svg+xml,%3csvg width='24' height='24' viewBox='0 0 
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
@@ -508,26 +502,45 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************!*\
   !*** ./mock/index.js ***!
   \***********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _img_hotel_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./img/hotel.jpg */ "./mock/img/hotel.jpg");
-/* harmony import */ var _img_circle_check_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./img/circle-check.svg */ "./mock/img/circle-check.svg");
-/* harmony import */ var _img_circle_check_svg__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_img_circle_check_svg__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.css */ "./mock/index.css");
+/* harmony import */ var _img_hotel_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./img/hotel.jpg */ "./mock/img/hotel.jpg");
+/* harmony import */ var _img_circle_check_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./img/circle-check.svg */ "./mock/img/circle-check.svg");
+/* harmony import */ var _img_circle_check_svg__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_img_circle_check_svg__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ "./mock/index.css");
+/* harmony import */ var _util_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util.js */ "./mock/util.js");
+
 
 
 
 
 function component() {
   const element = document.createElement("img");
-  element.src = _img_hotel_jpg__WEBPACK_IMPORTED_MODULE_0__["default"];
-  window.document.getElementById("svg-loader").src = (_img_circle_check_svg__WEBPACK_IMPORTED_MODULE_1___default());
+  element.src = _img_hotel_jpg__WEBPACK_IMPORTED_MODULE_2__["default"];
+  window.document.getElementById("svg-loader").src = (_img_circle_check_svg__WEBPACK_IMPORTED_MODULE_3___default());
   return element;
 }
 
 document.body.appendChild(component());
+
+
+/***/ }),
+
+/***/ "./mock/util.js":
+/*!**********************!*\
+  !*** ./mock/util.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* unused harmony export add */
+Array.prototype.custom = function () {
+  console.log("custom");
+};
+const add = (a, b) => {
+  return a + b;
+};
 
 
 /***/ })
